@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Job Opportunities - Digital Futures Learning Hub</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <img src="images/logo.png" alt="Digital Futures Learning Hub logo" width="80" />
-        <h1>Digital Futures Learning Hub</h1>
-        <p>Designing digital learning, supporting research impact</p>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="jobs.html">Jobs</a></li>
-          <li><a href="apply.html">Apply</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </header>
+<?php
+$pageTitle = "Job Opportunities - Digital Futures Learning Hub";
+include 'header.inc';
+include 'nav.inc';
+?>
+
   <main>
     <div class="container">
       <h2>Job Opportunities</h2>
@@ -28,7 +11,7 @@
         <aside class="apply-aside">
       <h2>Click here to apply</h2>
     <p>Click below to submit your application.</p>
-    <a href="apply.html" class="apply-button">Apply Now for Digital Futures Jobs</a>
+    <a href="apply.php" class="apply-button">Apply Now for Digital Futures Jobs</a>
     </aside>
     <section class="job-listing">
       <h2>Research Analyst</h2>
@@ -70,7 +53,7 @@
           <h3>Essential & Preferable Requirements</h3>
           <ul>
             <li>
-              <strong>Essential:</strong> Bachelor’s degree in Data Science,
+              <strong>Essential:</strong> Bachelor's degree in Data Science,
               Statistics, or related field.
             </li>
             <li>
@@ -114,7 +97,7 @@
           <h3>Essential & Preferable Requirements</h3>
           <ul>
             <li>
-              <strong>Essential:</strong> Bachelor’s degree in Information
+              <strong>Essential:</strong> Bachelor's degree in Information
               Technology or Computer Science.
             </li>
             <li>
@@ -134,19 +117,4 @@
       </div>
     </main>
 
-   <footer>
-      <p><strong>Digital Futures Learning Hub</strong></p>
-      <p>Supporting evidence-based digital education across the university.</p>
-      <p>
-        <a href="https://jesse999.atlassian.net/jira" target="_blank">Jira</a> |
-        <a
-          href="https://github.com/sahildalal26/Error404_WebTech"
-          target="_blank"
-          >GitHub Repository</a
-        >
-        |
-        <a href="mailto:info@companyname.com">info@companyname.com</a>
-      </p>
-    </footer>
-  </body>
-</html>
+<?php include 'footer.inc'; ?>

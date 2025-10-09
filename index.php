@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Digital Futures Learning Hub</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <img src="images/logo.png" alt="Company Logo" width="80" />
-        <h1>Digital Futures Learning Hub</h1>
-        <p>Designing digital learning, supporting research impact</p>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="jobs.html">Jobs</a></li>
-          <li><a href="apply.html">Apply</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </header>
+<?php
+$pageTitle = "Digital Futures Learning Hub";
+include 'header.inc';
+include 'nav.inc';
+?>
 
     <main>
       <div class="container">
@@ -74,19 +54,4 @@
       </div>
     </main>
 
-    <footer>
-      <p><strong>Digital Futures Learning Hub</strong></p>
-      <p>Supporting evidence-based digital education across the university.</p>
-      <p>
-        <a href="https://jesse999.atlassian.net/jira" target="_blank">Jira</a> |
-        <a
-          href="https://github.com/sahildalal26/Error404_WebTech"
-          target="_blank"
-          >GitHub Repository</a
-        >
-        |
-        <a href="mailto:info@companyname.com">info@companyname.com</a>
-      </p>
-    </footer>
-  </body>
-</html>
+<?php include 'footer.inc'; ?>
