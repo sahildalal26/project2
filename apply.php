@@ -38,13 +38,14 @@ include 'nav.inc';
                 id="job-reference"
                 name="job_reference"
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]{5}$"
+                minlength="5"
                 maxlength="5"
                 required
                 aria-describedby="job-reference-help"
-                title="Enter exactly 5 characters with at least one letter and one number"
+                title="Enter exactly 5 characters with at least one letter and one number (e.g., AB123)"
               />
               <small id="job-reference-help"
-                >Enter exactly 5 alphanumeric characters</small
+                >Exactly 5 characters: mix of letters and numbers only (e.g., AB123)</small
               >
             </div>
           </div>
@@ -59,10 +60,14 @@ include 'nav.inc';
                 type="text"
                 id="first-name"
                 name="first_name"
-                pattern="[A-Za-z]{1,20}"
+                pattern="[A-Za-z][A-Za-z\s'-]{0,19}"
+                minlength="2"
                 maxlength="20"
                 required
+                aria-describedby="first-name-help"
+                title="Enter 2-20 letters, spaces, hyphens, or apostrophes only"
               />
+              <small id="first-name-help">2-20 characters: letters, spaces, hyphens, or apostrophes only</small>
             </div>
 
             <!-- Last Name Input -->
@@ -72,10 +77,14 @@ include 'nav.inc';
                 type="text"
                 id="last-name"
                 name="last_name"
-                pattern="[A-Za-z]{1,20}"
+                pattern="[A-Za-z][A-Za-z\s'-]{0,19}"
+                minlength="2"
                 maxlength="20"
                 required
+                aria-describedby="last-name-help"
+                title="Enter 2-20 letters, spaces, hyphens, or apostrophes only"
               />
+              <small id="last-name-help">2-20 characters: letters, spaces, hyphens, or apostrophes only</small>
             </div>
 
             <!-- Date of Birth Input -->
@@ -85,12 +94,14 @@ include 'nav.inc';
                 type="text"
                 id="dob"
                 name="date_of_birth"
-                pattern="\d{2}/\d{2}/\d{4}"
+                pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
                 placeholder="dd/mm/yyyy"
+                min="1924-01-01"
+                max="2006-12-31"
                 required
                 aria-describedby="dob-help"
               />
-              <small id="dob-help">Format: dd/mm/yyyy</small>
+              <small id="dob-help">Format: dd/mm/yyyy (must be 18+ years old)</small>
             </div>
 
             <!-- Gender Selection Fieldset -->
@@ -141,9 +152,14 @@ include 'nav.inc';
                 type="text"
                 id="street-address"
                 name="street_address"
+                pattern="[A-Za-z0-9\s,.-/]+"
+                minlength="5"
                 maxlength="40"
                 required
+                aria-describedby="street-address-help"
+                title="Enter a valid street address (letters, numbers, spaces, and basic punctuation only)"
               />
+              <small id="street-address-help">5-40 characters: letters, numbers, spaces, and basic punctuation only</small>
             </div>
 
             <!-- Suburb/Town Input -->
@@ -154,9 +170,14 @@ include 'nav.inc';
                 type="text"
                 id="suburb"
                 name="suburb"
+                pattern="[A-Za-z\s'-]+"
+                minlength="2"
                 maxlength="40"
                 required
+                aria-describedby="suburb-help"
+                title="Enter suburb/town name (letters, spaces, hyphens, apostrophes only)"
               />
+              <small id="suburb-help">2-40 characters: letters, spaces, hyphens, apostrophes only</small>
             </div>
 
             <!-- State Selection Dropdown -->
@@ -183,12 +204,13 @@ include 'nav.inc';
                 id="postcode"
                 name="postcode"
                 pattern="\d{4}"
+                minlength="4"
                 maxlength="4"
                 required
                 aria-describedby="postcode-help"
                 title="Enter exactly four digits"
               />
-              <small id="postcode-help">Enter exactly 4 digits</small>
+              <small id="postcode-help">Enter exactly 4 digits (Australian postcode)</small>
             </div>
           </div>
 
@@ -202,10 +224,12 @@ include 'nav.inc';
                 type="email"
                 id="email"
                 name="email"
-                pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
-                title="Enter a valid email such as name@example.com"
+                pattern="^[a-zA-Z0-9](?:[a-zA-Z0-9._%+\-]*[a-zA-Z0-9])?@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
+                title="Enter a valid email address such as name@example.com"
                 required
+                aria-describedby="email-help"
               />
+              <small id="email-help">Must be a valid email format (e.g., name@example.com)</small>
             </div>
 
             <!-- Phone Number Input -->
@@ -216,11 +240,13 @@ include 'nav.inc';
                 id="phone"
                 name="phone"
                 pattern="\d{8,12}"
+                minlength="8"
+                maxlength="12"
                 required
                 aria-describedby="phone-help"
-                title="Enter 8 to 12 digits"
+                title="Enter 8 to 12 digits only"
               />
-              <small id="phone-help">Enter 8-12 digits only</small>
+              <small id="phone-help">Enter 8-12 digits only (no spaces or special characters)</small>
             </div>
           </div>
 
