@@ -1,16 +1,23 @@
 <?php
 $pageTitle = "Apply for Position - Digital Futures Learning Hub";
+$currentPage = 'apply';
+$bodyClass = 'apply-page';
 include 'header.inc';
 include 'nav.inc';
 ?>
 
-    <main class="main">
+    <main id="main-content" class="main">
       <div class="container">
         <h2>
           Job Application Form
           <span class="form-icon form-icon--document"></span>
         </h2>
+        <p class="form-intro">
+          Complete the form below to submit your expression of interest. Fields
+          marked with an asterisk (*) are required.
+        </p>
 
+        <!-- Client-side validation retained for Part 1. Part 2 moves validation to PHP -->
         <form
           class="application-form"
           method="POST"
@@ -18,15 +25,16 @@ include 'nav.inc';
         >
           <div class="form-section">
             <div class="form-group">
-              <label for="job-reference">Job Reference Number:</label>
+              <label for="job-reference">Job Reference Number *</label>
               <input
                 type="text"
                 id="job-reference"
                 name="job_reference"
-                pattern="[A-Za-z0-9]{5}"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]{5}$"
                 maxlength="5"
                 required
                 aria-describedby="job-reference-help"
+                title="Enter exactly 5 characters with at least one letter and one number"
               />
               <small id="job-reference-help"
                 >Enter exactly 5 alphanumeric characters</small
@@ -37,7 +45,7 @@ include 'nav.inc';
           <div class="form-section">
             <h3>Personal Information</h3>
             <div class="form-group">
-              <label for="first-name">First Name:</label>
+              <label for="first-name">First Name *</label>
               <input
                 type="text"
                 id="first-name"
@@ -49,7 +57,7 @@ include 'nav.inc';
             </div>
 
             <div class="form-group">
-              <label for="last-name">Last Name:</label>
+              <label for="last-name">Last Name *</label>
               <input
                 type="text"
                 id="last-name"
@@ -61,7 +69,7 @@ include 'nav.inc';
             </div>
 
             <div class="form-group">
-              <label for="dob">Date of Birth:</label>
+              <label for="dob">Date of Birth *</label>
               <input
                 type="text"
                 id="dob"
@@ -75,7 +83,7 @@ include 'nav.inc';
             </div>
 
             <fieldset class="form-group">
-              <legend>Gender</legend>
+              <legend>Gender *</legend>
               <div class="radio-group">
                 <input
                   type="radio"
@@ -112,7 +120,7 @@ include 'nav.inc';
           <div class="form-section">
             <h3>Address Information</h3>
             <div class="form-group">
-              <label for="street-address">Street Address:</label>
+              <label for="street-address">Street Address *</label>
               <input
                 type="text"
                 id="street-address"
@@ -123,7 +131,7 @@ include 'nav.inc';
             </div>
 
             <div class="form-group">
-              <label for="suburb">Suburb/Town:</label>
+              <label for="suburb">Suburb/Town *</label>
               <input
                 type="text"
                 id="suburb"
@@ -134,7 +142,7 @@ include 'nav.inc';
             </div>
 
             <div class="form-group">
-              <label for="state">State:</label>
+              <label for="state">State *</label>
               <select id="state" name="state" required>
                 <option value="">Select a state</option>
                 <option value="VIC">VIC</option>
@@ -149,7 +157,7 @@ include 'nav.inc';
             </div>
 
             <div class="form-group">
-              <label for="postcode">Postcode:</label>
+              <label for="postcode">Postcode *</label>
               <input
                 type="text"
                 id="postcode"
@@ -158,6 +166,7 @@ include 'nav.inc';
                 maxlength="4"
                 required
                 aria-describedby="postcode-help"
+                title="Enter exactly four digits"
               />
               <small id="postcode-help">Enter exactly 4 digits</small>
             </div>
@@ -166,12 +175,19 @@ include 'nav.inc';
           <div class="form-section">
             <h3>Contact Information</h3>
             <div class="form-group">
-              <label for="email">Email Address:</label>
-              <input type="email" id="email" name="email" required />
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                title="Enter a valid email such as name@example.com"
+                required
+              />
             </div>
 
             <div class="form-group">
-              <label for="phone">Phone Number:</label>
+              <label for="phone">Phone Number *</label>
               <input
                 type="tel"
                 id="phone"
@@ -179,6 +195,7 @@ include 'nav.inc';
                 pattern="\d{8,12}"
                 required
                 aria-describedby="phone-help"
+                title="Enter 8 to 12 digits"
               />
               <small id="phone-help">Enter 8-12 digits only</small>
             </div>
@@ -233,7 +250,7 @@ include 'nav.inc';
             </fieldset>
 
             <div class="form-group">
-              <label for="other-skills">Other Skills (Please specify):</label>
+              <label for="other-skills">Other Skills (Please specify)</label>
               <textarea
                 id="other-skills"
                 name="other_skills"
