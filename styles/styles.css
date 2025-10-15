@@ -45,13 +45,15 @@ body {
 .spacing-lg { margin: 32px; }
 .spacing-xl { margin: 48px; }
 
-/* Header - Clean and Professional */
+/* Header - Clean and Professional with Subtle Interactions */
+/* Main header container */
 header {
   background: var(--background);
   border-bottom: 1px solid var(--border);
   padding: 32px 24px;
 }
 
+/* Header content wrapper - flexbox layout */
 header > div {
   max-width: 1200px;
   margin: 0 auto;
@@ -61,19 +63,32 @@ header > div {
   margin-bottom: 24px;
 }
 
+/* Logo image with hover effect */
 header img {
   width: 48px;
   height: 48px;
   border-radius: 4px;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Logo hover effect - subtle rotation and scale */
+header img:hover {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+/* Site title heading */
 header h1 {
   font-size: 24px;
   font-weight: 600;
   color: var(--primary-dark);
   letter-spacing: -0.02em;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Tagline or description text */
 header p {
   font-size: 14px;
   color: var(--accent);
@@ -81,32 +96,44 @@ header p {
   font-weight: 400;
 }
 
-/* Navigation - Minimal and Clean */
+/* Navigation - Minimal and Clean with Interactive Hover Effects */
+/* Container for navigation menu */
 nav {
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Navigation list - horizontal flex layout */
 nav ul {
   display: flex;
   list-style: none;
   gap: 32px;
 }
 
+/* Navigation links with underline animation on hover */
 nav a {
   color: var(--primary-medium);
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
   padding: 8px 0;
+  /* Transparent border creates space for hover effect */
   border-bottom: 2px solid transparent;
+  /* Smooth transition for color and border changes */
   transition: var(--transition);
+  /* Relative positioning for pseudo-element effects */
+  position: relative;
 }
 
+/* Hover and focus states for accessibility and interactivity */
 nav a:hover,
 nav a:focus {
+  /* Darker text color on interaction */
   color: var(--primary-dark);
+  /* Animated underline appears */
   border-bottom-color: var(--primary-dark);
+  /* Slight upward movement for dynamic feel */
+  transform: translateY(-1px);
 }
 
 /* Main Content - Perfect Spacing */
@@ -122,71 +149,152 @@ main {
   margin: 0 auto;
 }
 
-/* Typography Hierarchy */
+/* Typography Hierarchy with Subtle Hover Effects */
+/* All heading elements share base styles */
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary-dark);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  /* Enable smooth transitions for hover effects */
+  transition: var(--transition);
 }
 
-h1 { font-size: 32px; margin-bottom: 16px; }
-h2 { font-size: 24px; margin-bottom: 16px; }
-h3 { font-size: 20px; margin-bottom: 12px; }
-h4 { font-size: 18px; margin-bottom: 12px; }
+/* Individual heading sizes following typographic scale */
+h1 { 
+  font-size: 32px; 
+  margin-bottom: 16px; 
+}
 
+h2 { 
+  font-size: 24px; 
+  margin-bottom: 16px; 
+}
+
+h3 { 
+  font-size: 20px; 
+  margin-bottom: 12px; 
+}
+
+h4 { 
+  font-size: 18px; 
+  margin-bottom: 12px; 
+}
+
+/* Paragraph text with optimal line height for readability */
 p {
   margin-bottom: 16px;
   color: var(--primary-medium);
   line-height: 1.6;
 }
 
-/* Lists - Clean and Readable */
+/* Lists - Clean and Readable with Hover Effects */
+/* Unordered and ordered list containers */
 ul, ol {
   margin: 16px 0;
   padding-left: 24px;
 }
 
+/* List items with hover interaction */
 li {
   margin-bottom: 8px;
   color: var(--primary-medium);
+  /* Enable smooth transitions */
+  transition: var(--transition);
+  /* Add padding for better click area */
+  padding: 4px 0;
 }
 
-/* Sections - Minimal Spacing */
+/* List item hover effect */
+li:hover {
+  /* Slightly darker text on hover */
+  color: var(--primary-dark);
+  /* Subtle indent for visual feedback */
+  padding-left: 8px;
+}
+
+/* Sections - Minimal Spacing with Clean Separation */
+/* Section containers for content organization */
 section {
   margin-bottom: 48px;
 }
 
+/* Remove bottom margin from last section */
 section:last-child {
   margin-bottom: 0;
 }
 
-/* Cards and Containers */
+/* Cards and Containers with Interactive Hover Effects */
+/* Card component for content grouping with hover effects */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 24px;
+  /* Enable smooth transitions for hover effects */
+  transition: var(--transition);
+  /* Cursor indicates interactive content */
+  cursor: pointer;
 }
 
+/* Card hover state - lifts and adds shadow */
+.card:hover {
+  /* Subtle lift effect */
+  transform: translateY(-4px);
+  /* Enhanced shadow for depth */
+  box-shadow: 0 8px 20px var(--shadow-medium);
+  /* Slightly darker border */
+  border-color: var(--primary-medium);
+}
+
+/* Services section with background image and hover effects */
 .services {
+  /* Background image with overlay */
   background-image: url("images/service.jpeg");
   background-size: cover;
   background-position: center;
   background-color: rgba(255, 255, 255, 0.5);
+  /* Blend mode for subtle image effect */
   background-blend-mode: lighten;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 24px;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
-/* Images - Clean Presentation */
+/* Services section hover effect */
+.services:hover {
+  /* Slightly darker border */
+  border-color: var(--primary-medium);
+  /* Add shadow for depth */
+  box-shadow: 0 8px 20px var(--shadow-medium);
+  /* Adjust background blend for emphasis */
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Images - Clean Presentation with Interactive Effects */
+/* All images have consistent styling with subtle borders and hover effects */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+  /* Add subtle border to all images for visual enhancement */
+  border: 2px solid rgba(26, 26, 26, 0.08);
+  /* Smooth transition for hover effects */
+  transition: var(--transition);
+}
+
+/* Hover effect for all images - adds interactivity */
+img:hover {
+  /* Slightly darker border on hover */
+  border-color: rgba(26, 26, 26, 0.15);
+  /* Subtle lift effect */
+  transform: translateY(-2px);
+  /* Enhanced shadow for depth */
+  box-shadow: 0 8px 16px var(--shadow-medium);
 }
 
 .building-image {
@@ -199,40 +307,56 @@ img {
   box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Forms - Premium Design */
+/* Forms - Premium Design with Interactive Elements */
+/* Main application form container */
 .application-form {
   max-width: 600px;
   margin: 0 auto;
   background: var(--background);
 }
 
+/* Form sections for logical grouping of fields */
 .form-section {
   margin-bottom: 32px;
   padding: 24px 0;
   border-bottom: 1px solid var(--border);
 }
 
+/* Remove border from last section */
 .form-section:last-child {
   border-bottom: none;
 }
 
+/* Section headings */
 .form-section h3 {
   margin-bottom: 24px;
   color: var(--primary-dark);
 }
 
+/* Individual form field container */
 .form-group {
   margin-bottom: 24px;
 }
 
+/* Form labels - accessible and clear */
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
   color: var(--primary-dark);
   font-size: 14px;
+  /* Smooth transition for hover effect */
+  transition: var(--transition);
+  /* Cursor indicates interactivity */
+  cursor: pointer;
 }
 
+/* Label hover effect for better UX */
+label:hover {
+  color: var(--primary-medium);
+}
+
+/* Input fields with consistent styling */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -245,53 +369,100 @@ textarea {
   font-size: 16px;
   font-family: inherit;
   background: var(--background);
+  /* Smooth transitions for all interactive states */
   transition: var(--transition);
 }
 
+/* Hover effect on form inputs - subtle border change */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--primary-medium);
+  /* Slight shadow for depth */
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Focus state with strong visual feedback */
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
+  /* Dark border to show active field */
   border-color: var(--primary-dark);
+  /* Focus ring for accessibility */
   box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+  /* Slight scale for emphasis */
+  transform: scale(1.01);
 }
 
+/* Invalid input styling (not during focus) */
 input:invalid:not(:focus) {
   border-color: #e74c3c;
 }
 
+/* Valid input returns to default border */
 input:valid {
   border-color: var(--border);
 }
 
+/* Fieldsets for grouping related form controls */
 fieldset {
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 16px;
   margin: 16px 0;
+  /* Smooth transition for hover effect */
+  transition: var(--transition);
 }
 
+/* Fieldset hover effect - subtle highlight */
+fieldset:hover {
+  border-color: var(--primary-medium);
+  background-color: rgba(248, 248, 248, 0.5);
+}
+
+/* Legend elements for fieldset titles */
 legend {
   padding: 0 8px;
   font-weight: 500;
   color: var(--primary-dark);
 }
 
+/* Radio and checkbox group containers */
 .radio-group,
 .checkbox-group {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 8px 0;
+  /* Enable smooth transition */
+  transition: var(--transition);
+  /* Add padding for better click area */
+  padding: 4px;
+  border-radius: 4px;
 }
 
+/* Hover effect on radio/checkbox groups */
+.radio-group:hover,
+.checkbox-group:hover {
+  background-color: var(--surface);
+  /* Cursor indicates clickable area */
+  cursor: pointer;
+}
+
+/* Radio and checkbox inputs sized appropriately */
 .radio-group input,
 .checkbox-group input {
   width: auto;
   margin: 0;
+  /* Larger cursor for better UX */
+  cursor: pointer;
 }
 
-/* Buttons - Clean and Professional */
+/* Buttons - Clean and Professional with Interactive Hover States */
+/* Base button styles shared by all button variants */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -300,32 +471,66 @@ legend {
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  /* Pointer cursor indicates clickable element */
   cursor: pointer;
+  /* Smooth transition for all interactive states */
   transition: var(--transition);
   font-family: inherit;
+  /* Prevent text selection on double-click */
+  user-select: none;
 }
 
+/* Primary button - main call-to-action style */
 .btn-primary {
   background: var(--primary-dark);
   color: white;
+  /* Add subtle border for definition */
+  border: 2px solid var(--primary-dark);
 }
 
+/* Primary button hover and focus states */
 .btn-primary:hover,
 .btn-primary:focus {
+  /* Lighter background on interaction */
   background: var(--primary-medium);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px var(--shadow-medium);
+  /* Border color changes with background */
+  border-color: var(--primary-medium);
+  /* Lift effect for interactivity */
+  transform: translateY(-2px);
+  /* Enhanced shadow for depth */
+  box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
+/* Active state when button is clicked */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Secondary button - alternative action style */
 .btn-secondary {
   background: var(--surface);
   color: var(--primary-dark);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
 }
 
+/* Secondary button hover and focus states */
 .btn-secondary:hover,
 .btn-secondary:focus {
+  /* Darker background on interaction */
   background: var(--border);
+  /* Darken border color */
+  border-color: var(--primary-medium);
+  /* Subtle lift effect */
+  transform: translateY(-1px);
+  /* Add shadow for depth */
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Active state for secondary button */
+.btn-secondary:active {
+  transform: translateY(0);
+  background: var(--surface);
 }
 
 .form-actions {
@@ -335,59 +540,117 @@ legend {
   margin-top: 32px;
 }
 
-/* Tables - Swiss Grid Style */
+/* Tables - Swiss Grid Style with Interactive Row Hover */
+/* Table container with clean borders */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 24px 0;
   background: var(--background);
+  /* Add subtle border around entire table */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  /* Hide overflow to respect border radius */
+  overflow: hidden;
 }
 
+/* Table cells - headers and data */
 th, td {
   text-align: left;
   padding: 16px;
   border-bottom: 1px solid var(--border);
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Table headers with distinct styling */
 th {
   font-weight: 600;
   color: var(--primary-dark);
   background: var(--surface);
   font-size: 14px;
+  /* Uppercase for visual hierarchy */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+/* Table data cells */
 td {
   color: var(--primary-medium);
 }
 
-tbody tr:hover {
-  background: var(--surface);
+/* Table row hover effect for interactivity */
+tbody tr {
+  /* Enable smooth transitions */
+  transition: var(--transition);
+  /* Cursor indicates interactive row */
+  cursor: pointer;
 }
 
-/* Jobs Page - Clean Layout */
+/* Row hover state - highlights current row */
+tbody tr:hover {
+  /* Light background highlight */
+  background: var(--surface);
+  /* Subtle lift effect */
+  transform: translateX(4px);
+  /* Add shadow for depth */
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Hover effect on table cells for extra emphasis */
+tbody tr:hover td {
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+/* Jobs Page - Clean Layout with Interactive Hover Effects */
+/* Individual job listing container with hover interaction */
 .job-listing {
   margin-bottom: 48px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--border);
+  /* Add padding for better visual separation */
+  padding: 24px;
+  border-radius: 8px;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Job listing hover effect - subtle highlight */
+.job-listing:hover {
+  /* Light background on hover */
+  background-color: var(--surface);
+  /* Add shadow for depth */
+  box-shadow: 0 4px 12px var(--shadow-medium);
+  /* Subtle lift effect */
+  transform: translateY(-4px);
+  /* Slightly darker border */
+  border-color: var(--primary-medium);
+}
+
+/* Remove border from last job listing */
 .job-listing:last-child {
   border-bottom: none;
 }
 
+/* Job metadata container (reference, salary, reports to) */
 .job-meta {
   display: flex;
   gap: 24px;
   margin-bottom: 16px;
   font-size: 14px;
   color: var(--accent);
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Strong text within job metadata */
 .job-meta strong {
   color: var(--primary-dark);
 }
 
-/* About Page - Team Sections */
+/* About Page - Team Sections with Interactive Elements */
+/* Student ID sidebar container with hover effect */
 .student-ids {
   background: var(--surface);
   padding: 24px;
@@ -396,35 +659,71 @@ tbody tr:hover {
   float: right;
   width: 300px;
   margin-left: 32px;
+  /* Add border for visual definition */
+  border: 1px solid var(--border);
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Student IDs hover effect */
+.student-ids:hover {
+  /* Add shadow for depth */
+  box-shadow: 0 8px 16px var(--shadow-medium);
+  /* Slightly darker border */
+  border-color: var(--primary-medium);
+}
+
+/* Student IDs section heading */
 .student-ids h3 {
   margin-bottom: 16px;
   border-bottom: 1px solid var(--border);
   padding-bottom: 8px;
 }
 
+/* Student IDs list - no bullets */
 .student-ids ul {
   list-style: none;
   padding: 0;
 }
 
+/* Individual student ID list items with hover effect */
 .student-ids li {
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
   font-size: 14px;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Student ID list item hover effect */
+.student-ids li:hover {
+  /* Darker background on hover */
+  background-color: rgba(26, 26, 26, 0.03);
+  /* Add padding for indent effect */
+  padding-left: 8px;
+  color: var(--primary-dark);
+}
+
+/* Remove border from last student ID */
 .student-ids li:last-child {
   border-bottom: none;
 }
 
+/* Figure elements for images with captions */
 figure {
   text-align: center;
   margin: 48px 0;
   clear: both;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Figure hover effect */
+figure:hover {
+  transform: scale(1.02);
+}
+
+/* Figure captions */
 figcaption {
   margin-top: 16px;
   font-style: italic;
@@ -432,33 +731,59 @@ figcaption {
   font-size: 14px;
 }
 
-/* Definition Lists */
+/* Definition Lists - For Team Member Information */
+/* Definition list container */
 dl {
   margin: 24px 0;
 }
 
+/* Definition term (team member names, labels) */
 dt {
   font-weight: 600;
   color: var(--primary-dark);
   margin: 16px 0 8px 0;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Definition term hover effect */
+dt:hover {
+  color: var(--primary-medium);
+  padding-left: 8px;
+}
+
+/* Definition description (details, contributions) */
 dd {
   margin-left: 16px;
   margin-bottom: 16px;
   color: var(--primary-medium);
 }
 
+/* Member quote styling - highlighted blockquote style */
 .member-quote {
   font-style: italic;
   background: var(--surface);
   padding: 16px;
+  /* Left border accent for emphasis */
   border-left: 4px solid var(--primary-dark);
   margin: 16px 0;
   border-radius: 0 4px 4px 0;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
-/* Footer - Minimal */
+/* Member quote hover effect */
+.member-quote:hover {
+  /* Darker background on hover */
+  background: var(--border);
+  /* Slightly thicker border */
+  border-left-width: 6px;
+  /* Add subtle shadow */
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* Footer - Minimal with Interactive Links */
+/* Footer container with top border separator */
 footer {
   border-top: 1px solid var(--border);
   padding: 32px 24px;
@@ -467,20 +792,33 @@ footer {
   margin-top: 48px;
 }
 
+/* Footer text styling */
 footer p {
   margin-bottom: 8px;
   font-size: 14px;
   color: var(--accent);
 }
 
+/* Footer links with hover effects */
 footer a {
   color: var(--primary-dark);
   text-decoration: none;
   font-weight: 500;
+  /* Enable smooth transition */
+  transition: var(--transition);
+  /* Add padding for larger click area */
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
+/* Footer link hover state */
 footer a:hover {
+  /* Underline on hover */
   text-decoration: underline;
+  /* Light background highlight */
+  background-color: rgba(26, 26, 26, 0.05);
+  /* Slightly darker text */
+  color: var(--primary-medium);
 }
 
 /* Icon Replacement for Emoji */
@@ -606,6 +944,8 @@ footer a:hover {
     break-inside: avoid;
   }
 }
+/* Apply Aside - Call-to-Action Sidebar with Hover Effects */
+/* Sidebar container for application CTA */
 .apply-aside {
   width: 25%;
   float: right;
@@ -614,14 +954,28 @@ footer a:hover {
   padding: 1rem;
   background-color: #f9f9f9;
   border-radius: 6px;
+  /* Enable smooth transitions */
+  transition: var(--transition);
 }
 
+/* Aside hover effect - subtle highlight */
+.apply-aside:hover {
+  /* Slightly darker border */
+  border-color: var(--primary-medium);
+  /* Add shadow for depth */
+  box-shadow: 0 4px 12px var(--shadow-medium);
+  /* Subtle lift effect */
+  transform: translateY(-2px);
+}
+
+/* Aside heading */
 .apply-aside h2 {
   font-size: 1.2rem;
   margin-top: 0;
   color: #333;
 }
 
+/* Apply button with enhanced hover effects */
 .apply-button {
   display: inline-block;
   margin-top: 0.8rem;
@@ -631,8 +985,179 @@ footer a:hover {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  /* Enable smooth transitions */
+  transition: var(--transition);
+  /* Add border for definition */
+  border: 2px solid #0077cc;
 }
 
+/* Apply button hover state */
 .apply-button:hover {
+  /* Darker background */
   background-color: #005fa3;
+  /* Darker border */
+  border-color: #005fa3;
+  /* Lift effect */
+  transform: translateY(-2px);
+  /* Add shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 119, 204, 0.3);
+}
+
+/* Apply button active state */
+.apply-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 119, 204, 0.2);
+}
+
+/* Accessibility utility -------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  border-radius: 0 0 4px 4px;
+  transition: var(--transition);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+body.home-page {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 248, 0.85)),
+    url("images/service.jpeg") center/cover fixed;
+}
+
+.home-page main {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+nav a.is-active {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.hero__content p {
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
+.hero__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.hero__highlights li {
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.hero__highlights li::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-dark);
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+.hero__figure {
+  text-align: center;
+}
+
+.hero__figure img {
+  border-radius: 12px;
+  border: 4px solid rgba(26, 26, 26, 0.1);
+}
+
+.hero__figure figcaption {
+  font-size: 14px;
+  color: var(--accent);
+  margin-top: 12px;
+}
+
+.services__intro {
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.services__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 32px rgba(0, 0, 0, 0.08);
+}
+
+.next-steps {
+  margin-top: 64px;
+}
+
+.next-steps__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.apply-page .application-form {
+  display: grid;
+  gap: 24px;
+}
+
+.apply-page .form-section {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+}
+
+.student-ids .student-id {
+  float: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.team-photo img {
+  border: 6px solid rgba(26, 26, 26, 0.08);
+  border-radius: 16px;
+}
+
+tbody tr:hover {
+  background: var(--surface);
+  transform: translateY(-2px);
+  transition: var(--transition);
 }

@@ -1,16 +1,22 @@
 <?php
 $pageTitle = "About Our Team - Digital Futures Learning Hub";
+$currentPage = 'about';  // Used for navigation highlighting
+$bodyClass = 'about-page';  // Used for page-specific styling
+
+// Embedded CSS example - demonstrates <style> tag usage (assignment requirement)
 $extraStyles = '
     <!-- EMBEDDED CSS EXAMPLE - Required for assignment -->
     <style>
+      /* Team highlight box styling */
       .team-highlight {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 8px;
         padding: 24px;
         margin: 24px 0;
+        box-shadow: 0 10px 30px rgba(19, 29, 54, 0.08);
       }
-
+      /* Team highlight heading */
       .team-highlight h4 {
         color: var(--primary-dark);
         margin-top: 0;
@@ -18,41 +24,50 @@ $extraStyles = '
         font-weight: 600;
         margin-bottom: 16px;
       }
-
+      /* Team highlight paragraph */
       .team-highlight p {
         color: var(--primary-medium);
         line-height: 1.6;
       }
     </style>
 ';
+
+// Include header and navigation components
 include 'header.inc';
 include 'nav.inc';
 ?>
 
-    <main>
-      <div class="student-ids">
+    <!-- Main content area with skip link target -->
+    <main id="main-content">
+      <!-- Student IDs Sidebar - floats to the right -->
+      <div class="student-ids" aria-label="Student identification numbers">
         <h3>Student IDs</h3>
+        <!-- List of team member IDs for assignment reference -->
         <ul>
-          <li>105346440 - Jesse Sadjoli</li>
-          <li>104441917 - Shivansh Ahlawat</li>
-          <li>103539251 - Sahil Dalal</li>
-          <li>105012877 - Hasith Methsara</li>
+          <li><span class="student-name">Jesse Sadjoli</span> <span class="student-id">105346440</span></li>
+          <li><span class="student-name">Shivansh Ahlawat</span> <span class="student-id">104441917</span></li>
+          <li><span class="student-name">Sahil Dalal</span> <span class="student-id">103539251</span></li>
+          <li><span class="student-name">Hasith Methsara</span> <span class="student-id">105012877</span></li>
         </ul>
       </div>
 
+      <!-- Page heading -->
       <h2>About Our Team</h2>
 
-      <!-- EMBEDDED CSS EXAMPLE - Using the team-highlight class defined in <style> above -->
-      <div class="team-highlight" aria-labelledby="Highlights">
-        <h4>Team Excellence Recognition</h4>
+      <!-- Team Highlight Box - Uses embedded CSS (assignment requirement) -->
+      <div class="team-highlight" aria-labelledby="highlight-heading">
+        <h4 id="highlight-heading">Team Excellence Recognition</h4>
         <p>
-          Our team has been recognized for outstanding collaboration and
-          technical excellence in web development projects. We pride ourselves
-          on delivering high-quality, accessible, and responsive web solutions.
+          Our team champions innovation in digital learning and research support.
+          We combine user-centred design, analytics, and accessibility to deliver
+          high-quality experiences for students and educators.
         </p>
       </div>
 
-      <!-- INLINE CSS EXAMPLE - Required for assignment -->
+      <!-- 
+        INLINE CSS EXAMPLE - Required for assignment
+        This demonstrates using style attribute directly on elements
+      -->
       <div
         style="
           background: var(--surface);
@@ -70,9 +85,9 @@ include 'nav.inc';
             margin-bottom: 16px;
           "
         >
-          This project represents our collaborative effort in Web Technology
-          coursework, demonstrating our skills in HTML5, CSS3, and responsive
-          design principles.
+          This project demonstrates our collaborative approach to delivering a
+          recruitment-ready web experience across HTML5, CSS3, and accessibility
+          standards.
         </p>
         <p
           style="
@@ -86,20 +101,23 @@ include 'nav.inc';
         </p>
       </div>
 
+      <!-- Group Details Section -->
       <section class="team-info" aria-labelledby="group-details">
-        <h3>Group Details</h3>
+        <h3 id="group-details">Group Details</h3>
+        <!-- Definition list for structured team information -->
         <dl>
           <dt>Group Name:</dt>
           <dd>Error404 - Web Technology Team</dd>
 
           <dt>Class Schedule:</dt>
           <dd>
+            <!-- Nested list for class timings -->
             <ul>
               <li>
                 Weekly Sessions
                 <ul>
-                  <li>Monday 11:30 PM - 12:30 PM - Lecture</li>
-                  <li>Thursday 2:30 PM - 4:30 PM - Tutorial</li>
+                  <li>Monday 11:30 AM – 12:30 PM (Lecture)</li>
+                  <li>Thursday 2:30 PM – 4:30 PM (Tutorial)</li>
                 </ul>
               </li>
             </ul>
@@ -107,9 +125,15 @@ include 'nav.inc';
         </dl>
       </section>
 
-      <section class="member-profiles" aria-labelledby="member-profiles and contributions>
-        <h3>Team Member Contributions</h3>
+      <!-- Team Member Profiles Section -->
+      <section class="member-profiles" aria-labelledby="member-profiles-heading">
+        <h3 id="member-profiles-heading">Team Member Contributions</h3>
+        <p class="section-description">
+          Each member contributed to planning, designing, and implementing our
+          recruitment site. Quotes highlight our shared values.
+        </p>
 
+        <!-- Definition list of team member contributions -->
         <dl class="contributions">
           <dt>Jesse Sadjoli</dt>
           <dd>
@@ -138,8 +162,7 @@ include 'nav.inc';
             about.html. Contributed to styles.css. Managed project coordination
             by creating jira tickets and sprint planning and GitHub setup.
             <div class="member-quote">
-              "The best code is written not for computers, but for humans to
-              read."
+              "The best code is written not for computers, but for humans to read."
             </div>
             <strong>Favorite Programming Language:</strong> Python<br />
             <strong>Translation:</strong> "Le meilleur code n'est pas écrit pour
@@ -156,27 +179,34 @@ include 'nav.inc';
         </dl>
       </section>
 
+      <!-- Team Photo Figure -->
       <figure class="team-photo">
-        <img src="images/team.png" alt="Team Group Photo" />
-        <figcaption>Our team photo - Teams meeting as we forgot to take a picture :&#41;</figcaption>
+        <!-- Team image with descriptive alt text -->
+        <img src="images/team.png" alt="Digital Futures Learning Hub team" />
+        <figcaption>Team Error404 celebrating a virtual milestone meeting.</figcaption>
       </figure>
 
-      <section class="fun-facts" aria-labelledby="Fun Facts">
-        <h3>Team Fun Facts</h3>
+      <!-- Fun Facts Section -->
+      <section class="fun-facts" aria-labelledby="fun-facts-heading">
+        <h3 id="fun-facts-heading">Team Fun Facts</h3>
+        <!-- Data table with team member personal information -->
         <table>
           <caption>
             Getting to Know Our Team
           </caption>
+          <!-- Table headers with scope attributes for accessibility -->
           <thead>
             <tr>
-              <th>Team Member</th>
-              <th>Dream Job</th>
-              <th>Favorite Coding Snack</th>
-              <th>Hometown</th>
-              <th>Fun Fact</th>
+              <th scope="col">Team Member</th>
+              <th scope="col">Dream Job</th>
+              <th scope="col">Favourite Coding Snack</th>
+              <th scope="col">Hometown</th>
+              <th scope="col">Fun Fact</th>
             </tr>
           </thead>
+          <!-- Table body with team member data -->
           <tbody>
+            <!-- Team Member: Jesse Sadjoli -->
             <tr>
               <td data-label="Team Member"><strong>Jesse Sadjoli</strong></td>
               <td data-label="Dream Job"><p>Pilot</p></td>
@@ -186,6 +216,7 @@ include 'nav.inc';
                 <p>I can speak, read and write fluently in Indonesian</p>
               </td>
             </tr>
+            <!-- Team Member: Shivansh Ahlawat -->
             <tr>
               <td data-label="Team Member">
                 <strong>Shivansh Ahlawat</strong>
@@ -195,10 +226,11 @@ include 'nav.inc';
               <td data-label="Hometown">Gurgoan</td>
               <td data-label="Fun Fact">I met prime Buddy franklin</td>
             </tr>
+            <!-- Team Member: Sahil Dalal -->
             <tr>
               <td data-label="Team Member"><strong>Sahil Dalal</strong></td>
               <td data-label="Dream Job">AI/ML Engineer</td>
-              <td data-label="Favorite Coding Snack">Dark Chocolate</td>
+              <td data-label="Favourite Coding Snack">Dark chocolate</td>
               <td data-label="Hometown">Delhi</td>
               <td data-label="Fun Fact">I love solving puzzles in my free time.</td>
             </tr>
@@ -207,4 +239,7 @@ include 'nav.inc';
       </section>
     </main>
 
-<?php include 'footer.inc'; ?>
+<?php 
+// Include footer component
+include 'footer.inc'; 
+?>
