@@ -1,17 +1,23 @@
 <?php
 $pageTitle = "Apply for Position - Digital Futures Learning Hub";
-$currentPage = 'apply';
-$bodyClass = 'apply-page';
+$currentPage = 'apply';  // Used for navigation highlighting
+$bodyClass = 'apply-page';  // Used for page-specific styling
+
+// Include header and navigation components
 include 'header.inc';
 include 'nav.inc';
 ?>
 
+    <!-- Main content area with skip link target -->
     <main id="main-content" class="main">
       <div class="container">
+        <!-- Page heading with decorative icon -->
         <h2>
           Job Application Form
           <span class="form-icon form-icon--document"></span>
         </h2>
+        
+        <!-- Form introduction and instructions -->
         <p class="form-intro">
           Complete the form below to submit your expression of interest. Fields
           marked with an asterisk (*) are required.
@@ -23,6 +29,7 @@ include 'nav.inc';
           method="POST"
           action="https://mercury.swin.edu.au/it000000/formtest.php"
         >
+          <!-- Job Reference Section -->
           <div class="form-section">
             <div class="form-group">
               <label for="job-reference">Job Reference Number *</label>
@@ -42,8 +49,10 @@ include 'nav.inc';
             </div>
           </div>
 
+          <!-- Personal Information Section -->
           <div class="form-section">
             <h3>Personal Information</h3>
+            <!-- First Name Input -->
             <div class="form-group">
               <label for="first-name">First Name *</label>
               <input
@@ -56,6 +65,7 @@ include 'nav.inc';
               />
             </div>
 
+            <!-- Last Name Input -->
             <div class="form-group">
               <label for="last-name">Last Name *</label>
               <input
@@ -68,6 +78,7 @@ include 'nav.inc';
               />
             </div>
 
+            <!-- Date of Birth Input -->
             <div class="form-group">
               <label for="dob">Date of Birth *</label>
               <input
@@ -82,8 +93,10 @@ include 'nav.inc';
               <small id="dob-help">Format: dd/mm/yyyy</small>
             </div>
 
+            <!-- Gender Selection Fieldset -->
             <fieldset class="form-group">
               <legend>Gender *</legend>
+              <!-- Radio buttons for gender selection (required field) -->
               <div class="radio-group">
                 <input
                   type="radio"
@@ -117,10 +130,13 @@ include 'nav.inc';
             </fieldset>
           </div>
 
+          <!-- Address Information Section -->
           <div class="form-section">
             <h3>Address Information</h3>
+            <!-- Street Address Input -->
             <div class="form-group">
               <label for="street-address">Street Address *</label>
+              <!-- Maximum 40 characters for street address -->
               <input
                 type="text"
                 id="street-address"
@@ -130,8 +146,10 @@ include 'nav.inc';
               />
             </div>
 
+            <!-- Suburb/Town Input -->
             <div class="form-group">
               <label for="suburb">Suburb/Town *</label>
+              <!-- Maximum 40 characters for suburb/town -->
               <input
                 type="text"
                 id="suburb"
@@ -141,6 +159,7 @@ include 'nav.inc';
               />
             </div>
 
+            <!-- State Selection Dropdown -->
             <div class="form-group">
               <label for="state">State *</label>
               <select id="state" name="state" required>
@@ -156,6 +175,7 @@ include 'nav.inc';
               </select>
             </div>
 
+            <!-- Postcode Input -->
             <div class="form-group">
               <label for="postcode">Postcode *</label>
               <input
@@ -172,8 +192,10 @@ include 'nav.inc';
             </div>
           </div>
 
+          <!-- Contact Information Section -->
           <div class="form-section">
             <h3>Contact Information</h3>
+            <!-- Email Address Input -->
             <div class="form-group">
               <label for="email">Email Address *</label>
               <input
@@ -186,6 +208,7 @@ include 'nav.inc';
               />
             </div>
 
+            <!-- Phone Number Input -->
             <div class="form-group">
               <label for="phone">Phone Number *</label>
               <input
@@ -201,6 +224,7 @@ include 'nav.inc';
             </div>
           </div>
 
+          <!-- Skills Section -->
           <div class="form-section">
             <fieldset>
               <legend>Skills</legend>
@@ -249,6 +273,7 @@ include 'nav.inc';
               </div>
             </fieldset>
 
+            <!-- Other Skills Textarea -->
             <div class="form-group">
               <label for="other-skills">Other Skills (Please specify)</label>
               <textarea
@@ -261,14 +286,20 @@ include 'nav.inc';
             </div>
           </div>
 
+          <!-- Form Action Buttons -->
           <div class="form-actions">
+            <!-- Submit button - sends form data to server -->
             <button type="submit" class="btn btn-primary">
               Submit Application
             </button>
+            <!-- Reset button - clears all form fields -->
             <button type="reset" class="btn btn-secondary">Reset Form</button>
           </div>
         </form>
       </div>
     </main>
 
-<?php include 'footer.inc'; ?>
+<?php 
+// Include footer component
+include 'footer.inc'; 
+?>

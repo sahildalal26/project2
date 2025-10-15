@@ -1,10 +1,13 @@
 <?php
 $pageTitle = "About Our Team - Digital Futures Learning Hub";
-$currentPage = 'about';
-$bodyClass = 'about-page';
+$currentPage = 'about';  // Used for navigation highlighting
+$bodyClass = 'about-page';  // Used for page-specific styling
+
+// Embedded CSS example - demonstrates <style> tag usage (assignment requirement)
 $extraStyles = '
     <!-- EMBEDDED CSS EXAMPLE - Required for assignment -->
     <style>
+      /* Team highlight box styling */
       .team-highlight {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -13,6 +16,7 @@ $extraStyles = '
         margin: 24px 0;
         box-shadow: 0 10px 30px rgba(19, 29, 54, 0.08);
       }
+      /* Team highlight heading */
       .team-highlight h4 {
         color: var(--primary-dark);
         margin-top: 0;
@@ -20,19 +24,25 @@ $extraStyles = '
         font-weight: 600;
         margin-bottom: 16px;
       }
+      /* Team highlight paragraph */
       .team-highlight p {
         color: var(--primary-medium);
         line-height: 1.6;
       }
     </style>
 ';
+
+// Include header and navigation components
 include 'header.inc';
 include 'nav.inc';
 ?>
 
+    <!-- Main content area with skip link target -->
     <main id="main-content">
+      <!-- Student IDs Sidebar - floats to the right -->
       <div class="student-ids" aria-label="Student identification numbers">
         <h3>Student IDs</h3>
+        <!-- List of team member IDs for assignment reference -->
         <ul>
           <li><span class="student-name">Jesse Sadjoli</span> <span class="student-id">105346440</span></li>
           <li><span class="student-name">Shivansh Ahlawat</span> <span class="student-id">104441917</span></li>
@@ -41,9 +51,10 @@ include 'nav.inc';
         </ul>
       </div>
 
+      <!-- Page heading -->
       <h2>About Our Team</h2>
 
-      <!-- EMBEDDED CSS EXAMPLE - Using the team-highlight class defined in <style> above -->
+      <!-- Team Highlight Box - Uses embedded CSS (assignment requirement) -->
       <div class="team-highlight" aria-labelledby="highlight-heading">
         <h4 id="highlight-heading">Team Excellence Recognition</h4>
         <p>
@@ -53,7 +64,10 @@ include 'nav.inc';
         </p>
       </div>
 
-      <!-- INLINE CSS EXAMPLE - Required for assignment -->
+      <!-- 
+        INLINE CSS EXAMPLE - Required for assignment
+        This demonstrates using style attribute directly on elements
+      -->
       <div
         style="
           background: var(--surface);
@@ -87,14 +101,17 @@ include 'nav.inc';
         </p>
       </div>
 
+      <!-- Group Details Section -->
       <section class="team-info" aria-labelledby="group-details">
         <h3 id="group-details">Group Details</h3>
+        <!-- Definition list for structured team information -->
         <dl>
           <dt>Group Name:</dt>
           <dd>Error404 - Web Technology Team</dd>
 
           <dt>Class Schedule:</dt>
           <dd>
+            <!-- Nested list for class timings -->
             <ul>
               <li>
                 Weekly Sessions
@@ -108,6 +125,7 @@ include 'nav.inc';
         </dl>
       </section>
 
+      <!-- Team Member Profiles Section -->
       <section class="member-profiles" aria-labelledby="member-profiles-heading">
         <h3 id="member-profiles-heading">Team Member Contributions</h3>
         <p class="section-description">
@@ -115,6 +133,7 @@ include 'nav.inc';
           recruitment site. Quotes highlight our shared values.
         </p>
 
+        <!-- Definition list of team member contributions -->
         <dl class="contributions">
           <dt>Jesse Sadjoli</dt>
           <dd>
@@ -160,17 +179,22 @@ include 'nav.inc';
         </dl>
       </section>
 
+      <!-- Team Photo Figure -->
       <figure class="team-photo">
+        <!-- Team image with descriptive alt text -->
         <img src="images/team.png" alt="Digital Futures Learning Hub team" />
         <figcaption>Team Error404 celebrating a virtual milestone meeting.</figcaption>
       </figure>
 
+      <!-- Fun Facts Section -->
       <section class="fun-facts" aria-labelledby="fun-facts-heading">
         <h3 id="fun-facts-heading">Team Fun Facts</h3>
+        <!-- Data table with team member personal information -->
         <table>
           <caption>
             Getting to Know Our Team
           </caption>
+          <!-- Table headers with scope attributes for accessibility -->
           <thead>
             <tr>
               <th scope="col">Team Member</th>
@@ -180,7 +204,9 @@ include 'nav.inc';
               <th scope="col">Fun Fact</th>
             </tr>
           </thead>
+          <!-- Table body with team member data -->
           <tbody>
+            <!-- Team Member: Jesse Sadjoli -->
             <tr>
               <td data-label="Team Member"><strong>Jesse Sadjoli</strong></td>
               <td data-label="Dream Job"><p>Pilot</p></td>
@@ -190,6 +216,7 @@ include 'nav.inc';
                 <p>I can speak, read and write fluently in Indonesian</p>
               </td>
             </tr>
+            <!-- Team Member: Shivansh Ahlawat -->
             <tr>
               <td data-label="Team Member">
                 <strong>Shivansh Ahlawat</strong>
@@ -199,6 +226,7 @@ include 'nav.inc';
               <td data-label="Hometown">Gurgoan</td>
               <td data-label="Fun Fact">I met prime Buddy franklin</td>
             </tr>
+            <!-- Team Member: Sahil Dalal -->
             <tr>
               <td data-label="Team Member"><strong>Sahil Dalal</strong></td>
               <td data-label="Dream Job">AI/ML Engineer</td>
@@ -211,4 +239,7 @@ include 'nav.inc';
       </section>
     </main>
 
-<?php include 'footer.inc'; ?>
+<?php 
+// Include footer component
+include 'footer.inc'; 
+?>
