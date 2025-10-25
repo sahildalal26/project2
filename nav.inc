@@ -24,6 +24,12 @@
               <?php if (isset($currentPage) && $currentPage === 'about') echo 'aria-current="page" class="is-active"'; ?>
             >About</a>
           </li>
+            <li>
+            <a
+              href="login.php"
+              <?php if (isset($currentPage) && $currentPage === 'Manage') echo 'aria-current="page" class="is-active"'; ?>
+            >Manage</a>
+          </li>
         </ul>
       </nav>
     </header>
