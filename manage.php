@@ -115,7 +115,7 @@ $result = mysqli_query($conn, $query);
         <legend>Delete EOI</legend>
     <form method="post" action="" class="application-form">
         <div class="form-group">
-            <label>Delete EOIs for Job Reference</label>
+            <label>Delete EOIs (Use Job Reference)</label>
             <input type="text" name="job_reference" required>
         </div>
         <button type="submit" name="delete_jobref" class="btn btn-primary">Delete</button>
