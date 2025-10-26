@@ -4,6 +4,40 @@ include 'settings.php';
 include 'header.inc';
 include 'nav.inc';
 
+// --- Handle delete by job reference ---
+if (isset($_POST['delete_jobref'])) {
+    $jobref = trim($_POST['job_reference']);
+    $delete_query = "DELETE FROM eoi WHERE job_reference = '$jobref'";
+    $delete_result = mysqli_query($conn, $delete_query);
+
+    if ($delete_result) {
+        echo "<div class='alert error'>All EOIs for job reference '$jobref' have been deleted.</div>";
+    } else {
+        echo "<div class='alert error'>Delete failed: " . mysqli_error($conn) . "</div>";
+    }
+} 
+
+// --- Handle update EOI status ---
+if (isset($_POST['update_status'])) {
+    $eoi_number = intval($_POST['eoi_number']);
+    $new_status = mysqli_real_escape_string($conn, $_POST['new_status']);
+
+    if ($eoi_number <= 0) {
+        echo "<div class='alert error'>Invalid EOI number.</div>";
+    } else {
+        $update_query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = '$eoi_number'";
+        $update_result = mysqli_query($conn, $update_query);
+
+        if (!$update_result) {
+            echo "<div class='alert error'>SQL Error: " . mysqli_error($conn) . "</div>";
+        } elseif (mysqli_affected_rows($conn) > 0) {
+            echo "<div class='alert success'>EOI #$eoi_number status updated to '$new_status'.</div>";
+        } else {
+            echo "<div class='alert error'>No rows updated — check EOI number or column names.</div>";
+        }
+    }
+}
+
 // --- Build base query ---
 $query = "SELECT * FROM eoi";
 $where = [];
@@ -37,46 +71,13 @@ $query .= " ORDER BY $sort_field ASC";
 $result = mysqli_query($conn, $query);
 ?>
 
-<main class="content-wrapper">
-    <div class="container">
-<?php
-// --- Handle delete by job reference ---
-if (isset($_POST['delete_jobref'])) {
-    $jobref = trim($_POST['job_reference']);
-    $delete_query = "DELETE FROM eoi WHERE job_reference = '$jobref'";
-    $delete_result = mysqli_query($conn, $delete_query);
-
-    if ($delete_result) {
-        echo "<div class='alert error'>All EOIs for job reference '$jobref' have been deleted.</div>";
-    } else {
-        echo "<div class='alert error'>Delete failed: " . mysqli_error($conn) . "</div>";
-    }
-}
-
-// --- Handle update EOI status ---
-if (isset($_POST['update_status'])) {
-    $eoi_number = intval($_POST['eoi_number']);
-    $new_status = mysqli_real_escape_string($conn, $_POST['new_status']);
-
-    if ($eoi_number <= 0) {
-        echo "<div class='alert error'>Invalid EOI number.</div>";
-    } else {
-        $update_query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = $eoi_number";
-        $update_result = mysqli_query($conn, $update_query);
-
-        if (!$update_result) {
-            echo "<div class='alert error'>SQL Error: " . mysqli_error($conn) . "</div>";
-        } elseif (mysqli_affected_rows($conn) > 0) {
-            echo "<div class='alert success'>EOI #$eoi_number status updated to '$new_status'.</div>";
-        } else {
-            echo "<div class='alert error'>No rows updated — check EOI number or column names.</div>";
-        }
-    }
-}
-?>
+<main class="manage-page">
+    <div class="manage-container">
     <h2>Manage EOIs</h2>
 
     <!-- Filter form -->
+    <fieldset>
+        <legend>Search EOI</legend>
     <form method="get" action="" class="application-form">
         <div class="form-group">
             <label>Job Reference</label>
@@ -106,33 +107,41 @@ if (isset($_POST['update_status'])) {
             <a href="manage.php" class="btn btn-secondary">Reset</a>
         </div>
     </form>
+    </fieldset>
+
 
     <!-- Delete EOIs by job reference -->
+    <fieldset>
+        <legend>Delete EOI</legend>
     <form method="post" action="" class="application-form">
         <div class="form-group">
             <label>Delete EOIs for Job Reference</label>
             <input type="text" name="job_reference" required>
         </div>
-        <button type="submit" name="delete_jobref" class="btn btn-secondary">Delete</button>
+        <button type="submit" name="delete_jobref" class="btn btn-primary">Delete</button>
     </form>
+    </fieldset>
 
     <!-- Update EOI status -->
+    <fieldset>
+        <legend>Update Status</legend>
     <form method="post" action="" class="application-form">
         <div class="form-group">
             <label>EOI Number</label>
-            <input type="number" name="eoi_number" min="1" required>
+            <input type="text" name="eoi_number" id="eoi_number" required>
         </div>
         <div class="form-group">
             <label>New Status</label>
             <select name="new_status">
             <option value="New" <?= ($_POST['new_status'] ?? '') === 'New' ? 'selected' : '' ?>>New</option>
-            <option value="In Progress" <?= ($_POST['new_status'] ?? '') === 'In Progress' ? 'selected' : '' ?>>In Progress</option>
-            <option value="Finalised" <?= ($_POST['new_status'] ?? '') === 'Finalised' ? 'selected' : '' ?>>Finalised</option>
+            <option value="Current" <?= ($_POST['new_status'] ?? '') === 'Current' ? 'selected' : '' ?>>Current</option>
+            <option value="Final" <?= ($_POST['new_status'] ?? '') === 'Final' ? 'selected' : '' ?>>Final</option>
 </select>
 
         </div>
         <button type="submit" name="update_status" class="btn btn-primary">Update Status</button>
     </form>
+    </fieldset>
 
     <!-- Results -->
     <table>
@@ -160,12 +169,25 @@ if (isset($_POST['update_status'])) {
         <?php
         if ($result && mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                foreach ($row as $value) {
-                    echo "<td>" . htmlspecialchars($value) . "</td>";
-                }
-                echo "</tr>";
-            }
+    echo "<tr>";
+    echo "<td>" . $row['EOInumber'] . "</td>";
+    echo "<td>" . $row['job_reference'] . "</td>";
+    echo "<td>" . $row['first_name'] . "</td>";
+    echo "<td>" . $row['last_name'] . "</td>";
+    echo "<td>" . $row['date_of_birth'] . "</td>";
+    echo "<td>" . $row['gender'] . "</td>";
+    echo "<td>" . $row['street_address'] . "</td>";
+    echo "<td>" . $row['suburb'] . "</td>";
+    echo "<td>" . $row['state'] . "</td>";
+    echo "<td>" . $row['postcode'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['phone'] . "</td>";
+    echo "<td>" . $row['skills'] . "</td>";
+    echo "<td>" . $row['other_skills'] . "</td>";
+    echo "<td>" . $row['status'] . "</td>";
+    echo "<td>" . $row['created_at'] . "</td>";
+    echo "</tr>";
+}
         } else {
             echo "<tr><td colspan='16'>No results found.</td></tr>";
         }

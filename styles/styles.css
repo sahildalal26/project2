@@ -420,7 +420,7 @@ fieldset {
 /* Fieldset hover effect - subtle highlight */
 fieldset:hover {
   border-color: var(--primary-medium);
-  background-color: rgba(248, 248, 248, 0.5);
+  background-color: var(--background);
 }
 
 /* Legend elements for fieldset titles */
