@@ -227,7 +227,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       <figure class="team-photo">
         <!-- Team image with descriptive alt text -->
         <img src="images/team.png" alt="Digital Futures Learning Hub team" />
-        <figcaption>Team Error404 celebrating a virtual milestone meeting.</figcaption>
+        <figcaption>Team Error404 Picture</figcaption>
       </figure>
 
       <!-- Fun Facts Section -->
