@@ -628,6 +628,19 @@ tbody tr:hover td {
   border-color: var(--primary-medium);
 }
 
+.apply-aside {
+  position: relative;
+  z-index: 10;
+}
+.job-listing:hover {
+  z-index: 1;
+}
+
+.apply-aside {
+  position: sticky;
+  top: 5rem;
+}
+
 /* Remove border from last job listing */
 .job-listing:last-child {
   border-bottom: none;
