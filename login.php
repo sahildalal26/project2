@@ -4,8 +4,8 @@ include 'settings.php';
 
 $error = '';
 
-$max_attempts = 5;
-$lockout_time = 180; // 3 minutes
+$max_attempts = 3;
+$lockout_time = 60; 
 
 // initializing counters if not set
 if (!isset($_SESSION['login_attempts'])) {
@@ -48,7 +48,7 @@ if (
 
         $remaining_attempts = $max_attempts - $_SESSION['login_attempts'];
         if ($remaining_attempts <= 0) {
-            $error = "Too many failed attempts. Please wait 3 minutes before trying again.";
+            $error = "Too many failed attempts. Please wait 1 minute before trying again.";
             $locked_out = true;
             $remaining = $lockout_time;
         } else {
