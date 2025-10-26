@@ -1299,7 +1299,7 @@ tbody tr:hover {
   box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
-/* Restrict content width and center it */
+/* center */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -1311,7 +1311,7 @@ tbody tr:hover {
   width: 100%;
 }
 
-/* Make tables scroll horizontally on smaller screens */
+/* horizontal scroll */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1319,14 +1319,14 @@ table {
   display: block;
 }
 
-/* Keep long text (like emails) from breaking layout */
+/* prevent layout break */
 td, th {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-/* Optional: make text smaller inside table */
+/* font size */
 table td, table th {
   font-size: 0.9rem;
 }
@@ -1351,5 +1351,28 @@ table td, table th {
 .alert.success {
   background-color: #eaffea;      
   color: #267326;                 
+}
+
+/* Contributions table */
+.contrib-table {
+  width: 100%;
+  table-layout: fixed;        
+  background: var(--surface); 
+  border-collapse: collapse;
+}
+
+.contrib-table th,
+.contrib-table td {
+  white-space: normal !important;   
+  overflow-wrap: anywhere;          
+  word-break: break-word;           
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  padding: 12px;
+}
+
+.contrib-table td p {
+  margin: 0 0 8px;
+  line-height: 1.6;
 }
 

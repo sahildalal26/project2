@@ -33,6 +33,7 @@ $extraStyles = '
 ';
 
 // Include header and navigation components
+include 'settings.php';
 include 'header.inc';
 include 'nav.inc';
 ?>
@@ -178,6 +179,49 @@ include 'nav.inc';
           </dd>
         </dl>
       </section>
+
+      <?php
+// --- Member Contributions Section ---
+echo "<h3>Member Contributions Table</h3>";
+
+// Helper function to split sentences into paragraphs
+function sentences_to_paragraphs($text) {
+    // Split on sentence-ending punctuation followed by a space
+    $parts = preg_split('/(?<=[.!?])\s+/', trim($text), -1, PREG_SPLIT_NO_EMPTY);
+    $safe  = array_map('htmlspecialchars', $parts);
+    return '<p>' . implode('</p><p>', $safe) . '</p>';
+}
+
+
+
+include 'settings.php';
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("<p>Database connection failure.</p>");
+}
+
+$query = "SELECT * FROM member_contributions";
+$result = mysqli_query($conn, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    echo "<table border='1' cellpadding='8' cellspacing='0'>";
+    echo "<tr><th>Member</th><th>Project 1 Contribution</th><th>Project 2 Contribution</th></tr>";
+
+    while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+    echo "<td>" . sentences_to_paragraphs($row['project1']) . "</td>";
+    echo "<td>" . sentences_to_paragraphs($row['project2']) . "</td>";
+    echo "</tr>";
+}
+
+    echo "</table>";
+} else {
+    echo "<p>No member contributions found.</p>";
+}
+?>
+
 
       <!-- Team Photo Figure -->
       <figure class="team-photo">
